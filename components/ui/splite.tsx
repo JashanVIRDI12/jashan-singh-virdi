@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useRef, useState } from 'react'
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
@@ -9,18 +9,33 @@ interface SplineSceneProps {
 }
 
 export function SplineScene({ scene, className }: SplineSceneProps) {
+  const [shouldLoad, setShouldLoad] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!window.matchMedia('(min-width: 768px)').matches) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '300px' }
+    )
+
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <Suspense
-      fallback={
-        <div className="w-full h-full flex items-center justify-center">
-          <span className="loader"></span>
-        </div>
-      }
-    >
-      <Spline
-        scene={scene}
-        className={className}
-      />
-    </Suspense>
+    <div ref={ref} className={className}>
+      {shouldLoad && (
+        <Suspense fallback={<div className="w-full h-full" />}>
+          <Spline scene={scene} className="w-full h-full" />
+        </Suspense>
+      )}
+    </div>
   )
 }

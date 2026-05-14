@@ -300,8 +300,8 @@ function SplineSection() {
           </form>
         </div>
 
-        {/* Spline robot — full width on mobile, 58% desktop */}
-        <div className="relative w-full h-[70vh] md:h-auto md:flex-1">
+        {/* Spline robot — desktop only, hidden on mobile */}
+        <div className="hidden md:block md:relative md:flex-1">
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
@@ -390,6 +390,8 @@ function WorkSection() {
                 <img
                   src={`https://api.microlink.io/?url=${site.url}&screenshot=true&meta=false&embed=screenshot.url`}
                   alt={site.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-90 group-hover:scale-[1.02] transition-all duration-500"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
