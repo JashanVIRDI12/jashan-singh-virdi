@@ -59,41 +59,41 @@ export function BentoPricing() {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 h-full">
 
-      {/* Row 1: AI Automation (2 cols featured) + CRO (1 col) */}
+      {/* Row 1: Website Design (2 cols featured) + CRO (1 col) */}
       <ServiceCard
-        icon={<Bot className="w-4 h-4 text-white" />}
-        title="AI Automation"
-        description="Instagram DM & WhatsApp automation that replies, qualifies, and books leads 24/7 — without you lifting a finger."
-        cta="See How It Works"
+        icon={<Globe className="w-4 h-4 text-white" />}
+        title="Website Design & Build"
+        description="We design and build websites that turn visitors into leads. Strategy, copy, design, and dev — done right, done fast."
+        cta="See Our Work"
         featured
-        badge="New"
+        badge="Core"
         className="col-span-2"
       />
       <ServiceCard
         icon={<MousePointer2 className="w-4 h-4 text-white/60" />}
         title="CRO"
-        description="We find where visitors drop off and fix it. More leads from the same traffic."
+        description="We find where your site leaks leads and fix it. Same traffic, more leads."
         cta="Free CRO Audit"
       />
 
-      {/* Row 2: SEO + Paid Ads + Website Design (1 col each) */}
+      {/* Row 2: SEO + Paid Ads + AI Automation (1 col each) */}
       <ServiceCard
         icon={<Search className="w-4 h-4 text-white/60" />}
         title="SEO"
-        description="Rank higher and get found when it matters most."
+        description="Rank where your customers are searching. Get found. Get leads."
         cta="Free SEO Audit"
       />
       <ServiceCard
         icon={<BarChart3 className="w-4 h-4 text-white/60" />}
         title="Paid Ads"
-        description="Google & Meta ads managed end-to-end."
+        description="Google & Meta ads built for real leads — not vanity clicks."
         cta="Start Ads"
       />
       <ServiceCard
-        icon={<Globe className="w-4 h-4 text-white/60" />}
-        title="Website Design"
-        description="Strategy, design, copy, and dev — built to convert."
-        cta="See Our Work"
+        icon={<Bot className="w-4 h-4 text-white/60" />}
+        title="AI Lead Bots"
+        description="DM & WhatsApp bots that qualify and book leads 24/7."
+        cta="See How"
       />
 
     </div>

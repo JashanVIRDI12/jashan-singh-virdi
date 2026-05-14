@@ -21,11 +21,11 @@ function ProofSection() {
           <div>
             <p className="text-white/30 text-[10px] tracking-[0.35em] uppercase font-medium mb-3">Case Study</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.05] tracking-[-0.03em]">
-              Real Work.<br />Real Results.
+              Real Websites.<br />Real Leads.
             </h2>
           </div>
           <div className="flex flex-wrap gap-2">
-            {['Healthcare', 'Fitness', 'Ecommerce', 'Local Services'].map((tag) => (
+            {['Healthcare', 'Transport', 'Fitness', 'Local Services'].map((tag) => (
               <span key={tag} className="text-[10px] text-white/30 border border-white/10 rounded-full px-3 py-1 tracking-wide">
                 {tag}
               </span>
@@ -41,17 +41,17 @@ function ProofSection() {
             <div>
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-widest uppercase text-white/35 border border-white/10 rounded-full px-3 py-1 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/30 inline-block" />
-                Charter Company — Fitness Coaching
+                Charter Company — Coaching Business
               </span>
               <p className="text-white/65 text-base leading-relaxed mb-4">
-                Charter Company was stuck at <span className="text-white font-semibold">2–3 leads per month</span>. Inconsistent. Unpredictable. Not enough to grow.
+                Charter Company had a website pulling in <span className="text-white font-semibold">2–3 leads a month</span>. Decent traffic, almost no conversions, no real lead flow to grow on.
               </p>
               <p className="text-white/65 text-base leading-relaxed">
-                We rebuilt their site from scratch, hired a paid ads and SEO specialist, and turned their website into a lead system.
+                We rebuilt their website from the ground up, ran paid ads and SEO, and turned the site into a real lead engine that fills their inbox every day.
               </p>
             </div>
             <div className="flex flex-wrap gap-2 mt-8">
-              {['Website Rebuild', 'Paid Ads', 'SEO', 'Lead System'].map((t) => (
+              {['New Website', 'Conversion Design', 'Paid Ads', 'SEO'].map((t) => (
                 <span key={t} className="text-[10px] text-white/30 border border-white/10 rounded-full px-2.5 py-1">{t}</span>
               ))}
             </div>
@@ -62,7 +62,7 @@ function ProofSection() {
             {/* Big stat */}
             <div className="flex-1 bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center">
               <div className="text-[4rem] sm:text-[5.5rem] font-black text-white leading-none tracking-tighter">30x</div>
-              <div className="text-white/40 text-xs font-medium mt-2 tracking-wide uppercase">More Monthly Leads</div>
+              <div className="text-white/40 text-xs font-medium mt-2 tracking-wide uppercase">More Leads / Month</div>
             </div>
             {/* Before / after */}
             <div className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 flex items-center justify-between">
@@ -83,16 +83,16 @@ function ProofSection() {
         <div className="grid md:grid-cols-3 gap-3">
           <div className="md:col-span-2 bg-white/[0.02] border border-white/8 rounded-2xl p-6 sm:p-7 flex flex-col justify-between">
             <p className="text-white/50 text-sm leading-relaxed">
-              We've built <span className="text-white font-medium">10+ live websites</span> across healthcare{' '}
-              <span className="text-white/70">(CHW — Chase Healthcare & Wellness)</span>, local services, fitness, and ecommerce.
-              Every site does one thing: convert.
+              I've built <span className="text-white font-medium">10+ live websites</span> across healthcare{' '}
+              <span className="text-white/70">(CHW — Chase Healthcare & Wellness)</span>, transport, fitness, restaurants, and local services.
+              Every single one is built for one thing: bringing in leads.
             </p>
           </div>
           <div className="bg-white/[0.02] border border-white/8 rounded-2xl p-6 sm:p-7 flex flex-col justify-center gap-3">
             {[
-              { n: '10+', l: 'Live websites' },
-              { n: '30x', l: 'Leads (Charter Company)' },
-              { n: '3+', l: 'Industries served' },
+              { n: '10+', l: 'Websites built & live' },
+              { n: '30x', l: 'Lead growth (Charter)' },
+              { n: '5+', l: 'Industries served' },
             ].map((s) => (
               <div key={s.n} className="flex items-baseline gap-2">
                 <span className="text-white font-black text-xl tracking-tight">{s.n}</span>
@@ -126,12 +126,12 @@ function AuditCTA() {
           {/* Left — headline */}
           <div className="bg-white/[0.03] border border-white/8 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col justify-between">
             <div>
-              <p className="text-[10px] text-white/30 tracking-[0.35em] uppercase font-medium mb-5">Free Audit</p>
+              <p className="text-[10px] text-white/30 tracking-[0.35em] uppercase font-medium mb-5">Free Website Audit</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-[1.08] tracking-[-0.03em] mb-5">
                 Is Your Website<br />Losing You Leads?
               </h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Most business websites look fine but convert terribly. We'll show you exactly where visitors are dropping off and what to fix — no fluff, no pitch.
+                Most websites look fine but barely bring in any leads. We'll show you exactly where your site is leaking — and what to fix to start getting real leads.
               </p>
             </div>
             <div className="mt-8 flex items-center gap-2 text-[10px] text-white/25 uppercase tracking-widest">
@@ -147,9 +147,9 @@ function AuditCTA() {
               <p className="text-[10px] text-white/30 tracking-[0.3em] uppercase font-medium mb-5">What you get</p>
               <ul className="space-y-3">
                 {[
-                  'Where visitors are dropping off',
-                  "What's killing your conversions",
-                  'Quick wins you can act on today',
+                  'Where visitors drop off your site',
+                  'Why you\'re losing leads right now',
+                  'Quick fixes to start getting leads',
                   'Full written breakdown — no fluff',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-white/55 text-sm">
@@ -163,7 +163,7 @@ function AuditCTA() {
             {/* CTA button card */}
             <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 flex flex-col items-start gap-4">
               <p className="text-white/40 text-xs leading-relaxed">
-                Send us your URL. We'll handle the rest and get back to you within 24 hours.
+                Send your URL. I'll audit your website and send back a full breakdown within 24 hours.
               </p>
               <button className="group relative w-full flex items-center justify-center gap-2 bg-white text-black font-semibold py-3.5 rounded-xl text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.2)] active:scale-[0.98]">
                 <span className="transition-transform duration-300 group-hover:-translate-x-0.5">Get My Free Audit</span>
@@ -182,8 +182,8 @@ function AuditCTA() {
 function AboutSection() {
   const stats = [
     { value: '10+', label: 'Websites built & live' },
-    { value: '30x', label: 'Leads increase' },
-    { value: '100%', label: 'Clear scope, real results' },
+    { value: '30x', label: 'Lead growth delivered' },
+    { value: '24h', label: 'Audit turnaround' },
   ];
 
   return (
@@ -203,10 +203,10 @@ function AboutSection() {
                 I'm Jashan Singh Virdi.
               </h2>
               <p className="text-white/55 text-sm md:text-base leading-relaxed">
-                A focused, hands-on operator obsessed with one thing — making websites actually work. I've built 10+ websites for real businesses, run full growth campaigns, and delivered results like taking a brand from 2 leads a month to 3 leads a day.
+                I build websites that bring real businesses real leads. 10+ live websites across healthcare, transport, fitness, restaurants, and ecommerce — and growth work that took one brand from 2 leads a month to 3 leads a day.
               </p>
               <p className="text-white/40 text-sm leading-relaxed mt-4">
-                No bloated retainers. No vague deliverables. Clear scope, real execution, results you can measure.
+                No bloated retainers. No vague deliverables. Just websites that work and lead numbers that go up.
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-white/8 flex items-center gap-3">
@@ -244,9 +244,9 @@ function SplineSection() {
       <div className="flex flex-col md:flex-row md:h-full">
         {/* Contact form — full width on mobile, 42% desktop */}
         <div className="w-full md:w-[42%] relative z-10 flex flex-col justify-center px-5 sm:px-8 md:px-16 py-16 md:py-0">
-          <p className="text-[10px] text-white/30 tracking-[0.35em] uppercase font-medium mb-4">Get in Touch</p>
+          <p className="text-[10px] text-white/30 tracking-[0.35em] uppercase font-medium mb-4">Let's Talk</p>
           <h2 className="text-3xl md:text-4xl font-black text-white leading-[1.08] tracking-[-0.03em] mb-8">
-            Let's Build<br />Something Real.
+            Let's Build a Website<br />That Brings You Leads.
           </h2>
 
           <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
@@ -282,7 +282,7 @@ function SplineSection() {
               <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">What do you need?</label>
               <textarea
                 rows={4}
-                placeholder="Tell us about your business and goals..."
+                placeholder="Tell me about your business and the leads you want..."
                 className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200 resize-none"
               />
             </div>
@@ -296,7 +296,7 @@ function SplineSection() {
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-black/8 to-transparent transition-transform duration-500" />
             </button>
 
-            <p className="text-white/20 text-[10px] text-center">We reply within 24 hours. No pitch, just clarity.</p>
+            <p className="text-white/20 text-[10px] text-center">I reply within 24 hours. No pitch — just a real conversation.</p>
           </form>
         </div>
 
