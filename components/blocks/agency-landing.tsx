@@ -238,16 +238,23 @@ function ContactForm() {
   const [email, setEmail] = React.useState('');
   const [url, setUrl] = React.useState('');
   const [message, setMessage] = React.useState('');
-  const [sent, setSent] = React.useState(false);
+  const [status, setStatus] = React.useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Website enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nWebsite: ${url}\n\nMessage:\n${message}`
-    );
-    window.location.href = `mailto:avneetvirdi26@gmail.com?subject=${subject}&body=${body}`;
-    setSent(true);
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, url, message }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus('sent');
+      setName(''); setEmail(''); setUrl(''); setMessage('');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -302,16 +309,22 @@ function ContactForm() {
 
       <button
         type="submit"
-        className="group relative w-full flex items-center justify-center gap-2 bg-white text-black font-semibold py-3.5 rounded-xl text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.18)] active:scale-[0.98] mt-1"
+        disabled={status === 'sending' || status === 'sent'}
+        className="group relative w-full flex items-center justify-center gap-2 bg-white text-black font-semibold py-3.5 rounded-xl text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.18)] active:scale-[0.98] mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         <span className="transition-transform duration-300 group-hover:-translate-x-0.5">
-          {sent ? 'Opening your email app…' : 'Send Message'}
+          {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Message Sent ✓' : 'Send Message'}
         </span>
-        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        {status !== 'sent' && <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />}
         <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-black/8 to-transparent transition-transform duration-500" />
       </button>
 
-      <p className="text-white/20 text-[10px] text-center">I reply within 24 hours. No pitch — just a real conversation.</p>
+      {status === 'error' && (
+        <p className="text-red-400 text-[11px] text-center">Something went wrong — please try again.</p>
+      )}
+      {status !== 'error' && (
+        <p className="text-white/20 text-[10px] text-center">I reply within 24 hours. No pitch — just a real conversation.</p>
+      )}
     </form>
   );
 }
