@@ -37,11 +37,11 @@ export function InteractiveHeroSection() {
           <em className="not-italic text-white/60">bring you leads.</em>
         </h1>
 
-        <button className="group relative flex items-center gap-2 bg-white text-black text-sm font-semibold px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.25)] active:scale-95 mb-7">
+        <a href="#free-audit" className="group relative flex items-center gap-2 bg-white text-black text-sm font-semibold px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.25)] active:scale-95 mb-7">
           <span className="transition-transform duration-300 group-hover:-translate-x-0.5">Get Your Free Website Audit</span>
           <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1" />
           <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-black/10 to-transparent transition-transform duration-500 ease-in-out" />
-        </button>
+        </a>
 
         <div className="flex flex-col items-center gap-1.5 pb-6 pointer-events-none">
           <p className="text-white/25 text-[10px] tracking-[0.3em] uppercase font-medium text-center">

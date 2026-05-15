@@ -165,11 +165,11 @@ function AuditCTA() {
               <p className="text-white/40 text-xs leading-relaxed">
                 Send your URL. I'll audit your website and send back a full breakdown within 24 hours.
               </p>
-              <button className="group relative w-full flex items-center justify-center gap-2 bg-white text-black font-semibold py-3.5 rounded-xl text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.2)] active:scale-[0.98]">
+              <a href="#contact" className="group relative w-full flex items-center justify-center gap-2 bg-white text-black font-semibold py-3.5 rounded-xl text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.2)] active:scale-[0.98]">
                 <span className="transition-transform duration-300 group-hover:-translate-x-0.5">Get My Free Audit</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-black/8 to-transparent transition-transform duration-500" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -210,10 +210,10 @@ function AboutSection() {
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-white/8 flex items-center gap-3">
-              <button className="group flex items-center gap-2 border border-white/15 text-white/60 hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/8 hover:border-white/25 active:scale-95">
+              <a href="#contact" className="group flex items-center gap-2 border border-white/15 text-white/60 hover:text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-white/8 hover:border-white/25 active:scale-95">
                 Work with us
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -233,6 +233,89 @@ function AboutSection() {
   );
 }
 
+function ContactForm() {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [url, setUrl] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [sent, setSent] = React.useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Website enquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nWebsite: ${url}\n\nMessage:\n${message}`
+    );
+    window.location.href = `mailto:avneetvirdi26@gmail.com?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col gap-1.5">
+          <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">Name</label>
+          <input
+            type="text"
+            required
+            placeholder="Your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200"
+          />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">Email</label>
+          <input
+            type="email"
+            required
+            placeholder="you@company.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">Website URL</label>
+        <input
+          type="url"
+          placeholder="https://yoursite.com"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200"
+        />
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">What do you need?</label>
+        <textarea
+          rows={4}
+          required
+          placeholder="Tell me about your business and the leads you want..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200 resize-none"
+        />
+      </div>
+
+      <button
+        type="submit"
+        className="group relative w-full flex items-center justify-center gap-2 bg-white text-black font-semibold py-3.5 rounded-xl text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.18)] active:scale-[0.98] mt-1"
+      >
+        <span className="transition-transform duration-300 group-hover:-translate-x-0.5">
+          {sent ? 'Opening your email app…' : 'Send Message'}
+        </span>
+        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-black/8 to-transparent transition-transform duration-500" />
+      </button>
+
+      <p className="text-white/20 text-[10px] text-center">I reply within 24 hours. No pitch — just a real conversation.</p>
+    </form>
+  );
+}
+
 function SplineSection() {
   return (
     <section id="contact" className="relative w-full md:h-screen bg-black border-t border-white/5">
@@ -248,56 +331,7 @@ function SplineSection() {
           <h2 className="text-3xl md:text-4xl font-black text-white leading-[1.08] tracking-[-0.03em] mb-8">
             Let's Build a Website<br />That Brings You Leads.
           </h2>
-
-          <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">Name</label>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200"
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">Email</label>
-                <input
-                  type="email"
-                  placeholder="you@company.com"
-                  className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">Website URL</label>
-              <input
-                type="url"
-                placeholder="https://yoursite.com"
-                className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[10px] text-white/30 tracking-[0.2em] uppercase font-medium">What do you need?</label>
-              <textarea
-                rows={4}
-                placeholder="Tell me about your business and the leads you want..."
-                className="bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all duration-200 resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="group relative w-full flex items-center justify-center gap-2 bg-white text-black font-semibold py-3.5 rounded-xl text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,255,255,0.18)] active:scale-[0.98] mt-1"
-            >
-              <span className="transition-transform duration-300 group-hover:-translate-x-0.5">Send Message</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-black/8 to-transparent transition-transform duration-500" />
-            </button>
-
-            <p className="text-white/20 text-[10px] text-center">I reply within 24 hours. No pitch — just a real conversation.</p>
-          </form>
+          <ContactForm />
         </div>
 
         {/* Spline robot — desktop only, hidden on mobile */}
@@ -319,9 +353,9 @@ function Footer() {
         <p className="text-white/30 text-sm font-semibold tracking-wider">JASHAN SINGH VIRDI</p>
         <p className="text-white/20 text-xs sm:text-sm">© 2025 Jashan Singh Virdi. All rights reserved.</p>
         <div className="flex gap-6 text-white/30 text-sm">
-          <a href="#" className="hover:text-white transition-colors duration-200">Privacy</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">Terms</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">Contact</a>
+          <a href="mailto:avneetvirdi26@gmail.com?subject=Privacy%20Enquiry" className="hover:text-white transition-colors duration-200">Privacy</a>
+          <a href="mailto:avneetvirdi26@gmail.com?subject=Terms%20Enquiry" className="hover:text-white transition-colors duration-200">Terms</a>
+          <a href="#contact" className="hover:text-white transition-colors duration-200">Contact</a>
         </div>
       </div>
     </footer>
